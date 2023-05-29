@@ -39,7 +39,7 @@ const TopPlay = () => {
         <div className="flex flex-row justify-between items-center">
           <h2> Top Charts </h2>
           <Link to="/top-charts"></Link>
-            <p> See more </p>
+            <p> See more</p>
 
         </div>
 
