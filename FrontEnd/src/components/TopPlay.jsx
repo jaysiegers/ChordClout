@@ -6,7 +6,7 @@ import {FreeMode} from 'swiper';
 
 import PlayPause from './PlayPause';
 import {playPause, setActiveSong} from '../redux/features/playerSlice';
-import {useGetTopChartQuery} from '../redux/services/Spotify23';
+import {useGetTodaysHitsQuery} from '../redux/services/Spotify23';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -14,10 +14,10 @@ import 'swiper/css/free-mode';
 const TopPlay = () => {
   const dispatch = useDispatch();
   const {activeSong, isPlaying} = useSelector ((state) => state.player);
-  const {data} = useGetTopChartQuery ();
+  const {data} = useGetTodaysHitsQuery ();
   const divRef = useRef(null);
 
-  const topPlays = data?.Slice(0,5);
+  const topPlays = data.track?.Slice(0,5);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
