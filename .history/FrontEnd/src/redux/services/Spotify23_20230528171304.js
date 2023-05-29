@@ -11,12 +11,11 @@ export const spotify23API = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getTodaysHits: builder.query({ query: () => '/playlist_tracks/?id=3mMZ3xGAURyJ71YSpVcGCK&offset=0&limit=100'}),
-    getRNBPlaylist: builder.query({query: () => '/playlist/?id=37i9dQZF1EQoqCH7BwIYb7'})
+    getTodaysHits: builder.query({ query: () => '/playlist_tracks/?id=3mMZ3xGAURyJ71YSpVcGCK&offset=0&limit=100'})
+
   }),
 });
 
 export const {
   useGetTodaysHitsQuery,
-  useGetRNBplaylistQuery,
 } = spotify23API;
