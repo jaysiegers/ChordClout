@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import {FiSearch} from 'react-icons/fi';
 
 const Searchbar = () => (
-  <form autoComplete="off" className="p-2 text-gray-400 focus-within:text-gray-600">
+  <Form autoComplete="off" className="p-2 text-gray-400 focus-within:text-gray-600">
     <label htmlFor="search-field" className="sr-only">
       Search all songs
     </label>
@@ -20,7 +20,7 @@ const Searchbar = () => (
         className="flex-1 bg-transparent border-none outline-none placeholder-gray-500 text-base text-white p-4"
       />
     </div>
-  </form>
+  </Form>
 );
 
 export default Searchbar;
