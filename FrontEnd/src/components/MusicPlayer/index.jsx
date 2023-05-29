@@ -36,19 +36,19 @@ const MusicPlayer = () => {
     dispatch(playPause(false));
 
     if (!shuffle) {
-      dispatch(nextSong((currentIndex + 1) % currentSongs.length));
+      dispatch(nextSong.track((currentIndex + 1) % currentSongs.track.length));
     } else {
-      dispatch(nextSong(Math.floor(Math.random() * currentSongs.length)));
+      dispatch(nextSong.track(Math.floor(Math.random() * currentSongs.track.length)));
     }
   };
 
   const handlePrevSong = () => {
     if (currentIndex === 0) {
-      dispatch(prevSong(currentSongs.length - 1));
+      dispatch(prevSong.track(currentSongs.track.length - 1));
     } else if (shuffle) {
-      dispatch(prevSong(Math.floor(Math.random() * currentSongs.length)));
+      dispatch(prevSong.track(Math.floor(Math.random() * currentSongs.track.length)));
     } else {
-      dispatch(prevSong(currentIndex - 1));
+      dispatch(prevSong.track(currentIndex - 1));
     }
   };
 
