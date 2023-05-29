@@ -17,7 +17,7 @@ const TopPlay = () => {
   const {data} = useGetTopChartQuery ();
   const divRef = useRef(null);
 
-  const topPlays = data?.Slice(0,5);
+  const topPlays = data?RiSliceFill(0,5);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));

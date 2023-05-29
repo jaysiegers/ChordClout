@@ -16,24 +16,6 @@ const TopPlay = () => {
   const {activeSong, isPlaying} = useSelector ((state) => state.player);
   const {data} = useGetTopChartQuery ();
   const divRef = useRef(null);
-
-  const topPlays = data?.Slice(0,5);
-
-  const handlePauseClick = () => {
-    dispatch(playPause(false));
-  };
-
-  const handlePlayClick = () => {
-    dispatch(setActiveSong({song, data, i}));
-    dispatch(playPause(true));
-
-  };
-
-  return (
-    <div ref={divRef}>
-
-    </div>
-  );
 };
 
 export default TopPlay;
