@@ -14,11 +14,14 @@ export const spotify23API = createApi({
     getTodaysHits: builder.query({ query: () => '/playlist_tracks/?id=3mMZ3xGAURyJ71YSpVcGCK&offset=0&limit=100'}),
     getRNBPlaylist: builder.query({query: () => '/playlist/?id=37i9dQZF1EQoqCH7BwIYb7'}),
     getTodaysHitsPlaylist: builder.query({query: () => '/playlist/?id=37i9dQZF1DXcBWIGoYBM5M'}),
+    getSongsBySearch: builder.query({query: (searchTerm) => `/playlist/?id=37i9dQZF1DXcBWIGoYBM5M${searchTerm}`}),
   }),
 });
 
+///search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}
 export const {
   useGetTodaysHitsQuery,
   useGetRNBPlaylistQuery,
   useGetTodaysHitsPlaylistQuery,
+  useGetSongsBySearchQuery,
 } = spotify23API;
