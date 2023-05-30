@@ -3,12 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { Error, Loader, PlaylistCard } from "../components"
 import { genres } from "../assets/constants"
 import { useGetRNBPlaylistQuery } from "../redux/services/Spotify23";
+import { useGetTodaysHitsPlaylistQuery } from "../redux/services/Spotify23";
 
 const Home = () => {
     const dispatch = useDispatch();
     const {activePlaylist, isPlaying} = useSelector((state) => state.player);
     const { data, isFetching, error } = useGetRNBPlaylistQuery();
+    const playlistdata = [data]
     //const genreTitle = "R&B";
+
+    console.log(data);
 
     if(isFetching) return <Loader title="Loading songs..." />;
 
@@ -24,13 +28,13 @@ const Home = () => {
 
             <div className="flex flex-wrap 
             sm:justify-start justify-center gap-8">
-                {[0,1,2,3].map((playlist, i) => (
+                {playlistdata.map((playlist) => (
                     <PlaylistCard
                     key={playlist.key}
                     playlist={playlist}
                     isPlaying={isPlaying}
-                    data={data}
-                    i={i}
+                    playlistdata={playlistdata}
+                    //i={i}
                     />
                 ))}
             </div>

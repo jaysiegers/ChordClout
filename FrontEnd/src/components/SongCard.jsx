@@ -40,7 +40,7 @@ const SongCard = ({song, isPlaying, activeSong, i, data}) => {
         </Link>
       </p>
       <p className="text-sm truncate text-gray-300 mt-1">
-        <Link to={song.track.artists[0].name ? `/artists/${song?.track.artists[0].id}` : '/top-artists'}>
+        <Link to={song.track.artists[0].name ? `/artists/${song?.track.artists[0]?.id}` : '/top-artists'}>
         {song.track.artists[0]?.name}
         </Link>
       </p>
