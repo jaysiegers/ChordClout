@@ -2,20 +2,18 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Error, Loader, SongCard } from "../components"
-import { genres } from "../assets/constants"
-import {selectGenreListId} from '../redux/features/playerSlice';
-import { useGetPlaylistTracksByIDQuery } from "../redux/services/Spotify23";
+
+import { useGetPlaylistByIDQuery, useGetPlaylistTracksByIDQuery } from "../redux/services/Spotify23";
 
 const Playlist = () => {
     const { playlistid } = useParams();
-    const dispatch = useDispatch();
-    const {activeSong, isPlaying, genreListId} = useSelector((state) => state.player);
+    const { activeSong, isPlaying } = useSelector((state) => state.player);
     const { data, isFetching, error } = useGetPlaylistTracksByIDQuery({playlistid});
-    const genreTitle = "R&B";
+    const { data: playlistdata, isFetching: isFetchingPlaylist, error: playlistError} = useGetPlaylistByIDQuery({playlistid});
 
-    if(isFetching) return <Loader title="Loading songs..." />;
+    if(isFetching || isFetchingPlaylist) return <Loader title="Loading songs..." />;
 
-    if(error) return <Error />;
+    if(error || playlistError) return <Error />;
 
     console.log(playlistid);
     console.log(data);
@@ -24,15 +22,8 @@ const Playlist = () => {
             <div className="w-full flex justify-between items-center 
             sm:flex-row flex-col mt-4 mb-10">
                 <div className="font-bold text-3xl
-                 text-white">Discover {genreTitle}</div>
-                <select onChange={(e) => dispatch (selectGenreListId(e.target.value))}
-                    value={genreListId || 'R&B'}
-                    className="bg-black text-gray-300 p-3
-                    text-sm rounded-lg outline-none sm:mt-0 mt-5"
-                >
-                    {genres.map((genre) => <option key={genre.value}
-                    value={genre.value}>{genre.title}</option>)}
-                </select>
+                 text-white">{playlistdata.name}
+                </div>
             </div>
 
             <div className="flex flex-wrap 

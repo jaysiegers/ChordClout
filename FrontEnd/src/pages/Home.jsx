@@ -15,7 +15,7 @@ const Home = () => {
 
     if(isFetching || isFetching1 || isFetching2) return <Loader title="Loading songs..." />;
 
-    if(error, error1, error2) return <Error />;
+    if(error || error1 || error2) return <Error />;
 
     const playlistdata = [ todayshitsdata, newreleasedata, rnbdata];
 
