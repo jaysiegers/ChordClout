@@ -2,21 +2,24 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Error, Loader, PlaylistCard } from "../components"
 import { genres } from "../assets/constants"
-import { useGetRNBPlaylistQuery } from "../redux/services/Spotify23";
-import { useGetTodaysHitsPlaylistQuery } from "../redux/services/Spotify23";
+import { useGetNewReleasesPlaylistQuery, useGetRNBPlaylistQuery, useGetTodaysHitsPlaylistQuery, useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
 
 const Home = () => {
     const dispatch = useDispatch();
     const {activePlaylist, isPlaying} = useSelector((state) => state.player);
-    const { data, isFetching, error } = useGetRNBPlaylistQuery();
-    const playlistdata = [data]
+    const { data: todayshitsdata, isFetching: isFetching1, error: error1 } = useGetTodaysHitsPlaylistQuery();
+    const { data: rnbdata, isFetching: isFetching2, error: error2 } = useGetRNBPlaylistQuery();
+    const { data: newreleasedata, isFetching, error } = useGetNewReleasesPlaylistQuery();
+    
     //const genreTitle = "R&B";
 
-    console.log(data);
+    if(isFetching || isFetching1 || isFetching2) return <Loader title="Loading songs..." />;
 
-    if(isFetching) return <Loader title="Loading songs..." />;
+    if(error, error1, error2) return <Error />;
 
-    if(error) return <Error />;
+    const playlistdata = [ todayshitsdata, newreleasedata, rnbdata];
+
+    console.log( playlistdata );
 
     return (
         <div className="flex flex-col">
@@ -28,13 +31,13 @@ const Home = () => {
 
             <div className="flex flex-wrap 
             sm:justify-start justify-center gap-8">
-                {playlistdata.map((playlist) => (
+                {playlistdata.map((playlist, i) => (
                     <PlaylistCard
                     key={playlist.key}
                     playlist={playlist}
                     isPlaying={isPlaying}
-                    playlistdata={playlistdata}
-                    //i={i}
+                    data={playlistdata}
+                    i={i}
                     />
                 ))}
             </div>

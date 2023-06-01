@@ -6,14 +6,11 @@ const Track = ({ isPlaying, isActive, activeSong }) => (
       <img src={ activeSong?.track === true
               ? activeSong.album.images[0].url
               : activeSong.track.album.images[0].url
-        //activeSong?.track.album.images[0].url
-        //activeSong?.track.name ? activeSong?.track?.album?.images[0].url : 'logo.png'
       }
          alt="cover art" className="rounded-full" />
     </div>
     <div className="w-[50%]">
       <p className="truncate text-white font-bold text-lg">
-        {/* {activeSong?.track.name ? activeSong?.track.name : 'No active Song'} */}
         {activeSong?.track === true
             ? activeSong?.name
             : activeSong?.track.name
@@ -21,7 +18,6 @@ const Track = ({ isPlaying, isActive, activeSong }) => (
             : 'No active Song'}
       </p>
       <p className="truncate text-gray-300">
-        {/* {activeSong?.track.name ? activeSong?.track.artists[0].name : 'No active Song'} */}
         {activeSong?.track === true
             ? activeSong.artists[0].name
             : activeSong?.track.artists[0].name
