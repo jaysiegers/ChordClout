@@ -2,18 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Error, Loader, PlaylistCard } from "../components"
 
-import { useGetPlaylistByIDQuery, useGetNewReleasesPlaylistQuery } from "../redux/services/Spotify23";
+import { useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
 
 const Home = () => {
-    const dispatch = useDispatch();
-    const {activePlaylist, isPlaying} = useSelector((state) => state.player);
+    const {isPlaying} = useSelector((state) => state.player);
     const { data: todayshitsdata, isFetching, error } = useGetPlaylistByIDQuery('37i9dQZF1DXcBWIGoYBM5M');
     const { data: viralhitsdata, isFetching: isFetching1, error: error1 } = useGetPlaylistByIDQuery('37i9dQZF1DX2L0iB23Enbq');
-    // const { data: newreleasedata, isFetching: isFetching2, error2 } = useGetPlaylistByIDQuery('37i9dQZF1DX4JAvHpjipBk');
-    const { data: newreleasedata, isFetching: isFetching2, error2 } = useGetNewReleasesPlaylistQuery();
+    const { data: newreleasedata, isFetching: isFetching2, error2 } = useGetPlaylistByIDQuery('37i9dQZF1DX4JAvHpjipBk');
     const { data: softpophitsdata, isFetching: isFetching3, error: error3 } = useGetPlaylistByIDQuery('37i9dQZF1DWTwnEm1IYyoj');
-    
-    //const genreTitle = "R&B";
 
     if(isFetching || isFetching1 || isFetching2 || isFetching3) return <Loader title="Loading songs..." />;
 

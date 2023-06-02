@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 
-const DetailsHeader = ({ artistId, artistData, songData }) => {
-
+const SongDetailsHeader = ( songData ) => {
+  const SongData = [songData];
+  // const ArtistData = [ artistData ];
 // console.log(artistData);
 // console.log(artistData.artists[0].images[0].url)
-// console.log(songData);
+// console.log(songData.tracks[0]);
+console.log(SongData[0]?.SongData.tracks[0]);
+// console.log(ArtistData[0]?.ArtistData);
 //console.log(artistId);
 return (
   <div className="relative w-full flex flex-col">
@@ -15,9 +18,8 @@ return (
       alt="alt"
       src=
       {
-       artistId ? artistData?.artists[0].images[0].url.replace('{w}','500').replace('{h}','500')
-       : 
-      songData?.tracks[0].album.images[0].url
+      //  artistId ? artistData?.artists[0].images[0].url.replace('{w}','500').replace('{h}','500') : 
+      SongData[0]?.SongData.tracks[0].album.images[0].url
       }
       className="sm:w-48 w-28 sm:h-48 h-28 rounded-full
       object-cover border-2 shadow-xl shadow-black"
@@ -25,20 +27,23 @@ return (
 
       <div className="ml-5">
         <p className="font=bold sm:text-3xl text-xl text-white">
-        {artistId ? artistData?.artists[0].name : songData?.tracks[0].name}
+        {
+        // artistId ? artistData?.artists[0].name : 
+        SongData[0].SongData.tracks[0].name}
         </p>
-        {!artistId && (
-          <Link to={'/artists/${songData?.artists[0].id}'}>
+        {/* {
+        !artistId && ( */}
+          <Link to={`/artists/${SongData[0].SongData.tracks[0].artists[0].id}`}>
           <p className="text-base text-gray-400 mt-2">
-            {songData?.tracks[0].artists[0].name}
+            {SongData[0]?.SongData.tracks[0].artists[0].name}
           </p>
           </Link>
-        )}
+        {/* )} */}
 
         <p className="text-base text-gray-400 mt-2">
-          {artistId
-          ? artistData.artists[0].genres[0]
-          : songData?.tracks[0].popularity
+          {
+          // artistId ? artistData.artists[0].genres[0] : 
+          SongData[0]?.SongData.tracks[0].popularity
           }
         </p>
       </div>
@@ -48,4 +53,4 @@ return (
   </div>
 );
 };
-export default DetailsHeader;
+export default SongDetailsHeader;

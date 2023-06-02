@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
+import { SongDetailsHeader, Error, Loader } from "../components";
 
 import { setActiveSong, playPause } from "../redux/features/playerSlice";
 import { useGetSongsByIDQuery } from "../redux/services/Spotify23";
@@ -9,7 +9,7 @@ const SongDetails = () => {
     const dispatch = useDispatch;
     const { songid } = useParams();
     const { activeSong, isPlaying } = useSelector((state) => state.player);
-    const { data: songData, isFetching, error } = useGetSongsByIDQuery({songid});
+    const { data: songData, isFetching, error } = useGetSongsByIDQuery(songid);
 
     //console.log(songData.tracks[0]);
 
@@ -21,7 +21,7 @@ const SongDetails = () => {
 
     return (
         <div className=" flex flex-col">
-            <DetailsHeader artistId="" SongData= {songData} />
+            <SongDetailsHeader SongData= {songData} />
             <div className="mb-10">
                 <h2 className="text-white text-3xl
                 font-bold ">Lyrics:

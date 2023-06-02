@@ -5,7 +5,8 @@ import PlaylistCard from './playlistCard';
 import SearchCard from './SearchCard';
 import TopPlay from './TopPlay';
 import ArtistCard from './ArtistCard';
-import DetailsHeader from './DetailsHeader';
+import SongDetailsHeader from './SongDetailsHeader';
+import ArtistDetailsHeader from './ArtistDetailsHeader'
 import SongBar from './SongBar';
 import RelatedSongs from './RelatedSongs';
 import MusicPlayer from './MusicPlayer';
@@ -20,7 +21,8 @@ export {
   SearchCard,
   Searchbar,
   ArtistCard,
-  DetailsHeader,
+  SongDetailsHeader,
+  ArtistDetailsHeader,
   SongBar,
   RelatedSongs,
   MusicPlayer,

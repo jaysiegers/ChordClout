@@ -9,7 +9,6 @@ const Discover = () => {
     const dispatch = useDispatch();
     const {activeSong, isPlaying, genreListId} = useSelector((state) => state.player);
     const { data, isFetching, error } = useGetTodaysHitsQuery();
-    const genreTitle = "R&B";
 
     if(isFetching) return <Loader title="Loading songs..." />;
 
@@ -20,7 +19,7 @@ const Discover = () => {
             <div className="w-full flex justify-between items-center 
             sm:flex-row flex-col mt-4 mb-10">
                 <div className="font-bold text-3xl
-                 text-white">Discover {genreTitle}</div>
+                 text-white">Discover</div>
                 <select onChange={(e) => dispatch (selectGenreListId(e.target.value))}
                     value={genreListId || 'R&B'}
                     className="bg-black text-gray-300 p-3

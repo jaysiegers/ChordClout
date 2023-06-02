@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { Error, Loader, PlaylistCard, Searchbar } from "../components"
-import { genres } from "../assets/constants"
-import { useGetNewReleasesPlaylistQuery, useGetRNBPlaylistQuery, useGetTodaysHitsPlaylistQuery, useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
+import { useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -19,7 +18,7 @@ const Home = () => {
 // Reggae: 37i9dQZF1EQpjs4F0vUZ1x
 // House: 37i9dQZF1DXd5DCuoVuFY3
 // K-pop: 37i9dQZF1DX9tPFwDMOaN1
-    const {activePlaylist, isPlaying} = useSelector((state) => state.player);
+    const {isPlaying} = useSelector((state) => state.player);
     const { data: hiphopdata, isFetching: isFetching0, error: error0 } = useGetPlaylistByIDQuery('37i9dQZF1EQnqst5TRi17F');
     const { data: popdata, isFetching, error } = useGetPlaylistByIDQuery('37i9dQZF1EQncLwOalG3K7');
     const { data: electronicdata, isFetching: isFetching1, error: error1 } = useGetPlaylistByIDQuery('37i9dQZF1EIeZKM1YFAtwx');

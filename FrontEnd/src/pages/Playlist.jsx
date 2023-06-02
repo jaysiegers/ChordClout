@@ -9,8 +9,8 @@ const Playlist = () => {
     const { playlistid } = useParams();
     console.log(playlistid);
     const { activeSong, isPlaying } = useSelector((state) => state.player);
-    const { data, isFetching, error } = useGetPlaylistTracksByIDQuery({playlistid});
-    const { data: playlistdata, isFetching: isFetchingPlaylist, error: playlistError} = useGetPlaylistByIDQuery({playlistid});
+    const { data, isFetching, error } = useGetPlaylistTracksByIDQuery(playlistid);
+    const { data: playlistdata, isFetching: isFetchingPlaylist, error: playlistError} = useGetPlaylistByIDQuery(playlistid);
 
     if(isFetching || isFetchingPlaylist) return <Loader title="Loading songs..." />;
 
