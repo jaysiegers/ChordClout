@@ -1,12 +1,15 @@
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
+import { Error, Loader } from '../components';
+
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/playerSlice';
+
 import { useGetSongsByIDQuery } from '../redux/services/Spotify23';
 
-const SearchCard = ({id, song, isPlaying, activeSong, i}) => {
-  //const { data } = useGetSongsByIDQuery(id);
+const SearchCard = ({songid, song, isPlaying, activeSong, i}) => {
+  const { data, isFetching, error } = useGetSongsByIDQuery({songid});
 
   const dispatch = useDispatch ();
   
@@ -20,8 +23,12 @@ const SearchCard = ({id, song, isPlaying, activeSong, i}) => {
 
   };
 
+  if (isFetching) return <Loader title="Loading results" />;
+
+  if (error) return <Error />;
+
   console.log(data)
-  console.log(id)
+  console.log(songid)
 
   return (
   <div className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg curser-pointer">

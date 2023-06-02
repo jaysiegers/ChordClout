@@ -1,4 +1,4 @@
-import { HiOutlineHashtag, HiOutlineHeart, HiOutlineHome, HiOutlinePhotograph, HiOutlineUserGroup } from 'react-icons/hi';
+import { HiOutlineHashtag, HiOutlineHeart, HiOutlineHome, HiOutlineMap, HiOutlinePhotograph, HiOutlineSearch, HiOutlineUserGroup } from 'react-icons/hi';
 
 export const genres = [
   { title: 'R&B', value: 'RNB' },
@@ -18,8 +18,9 @@ export const genres = [
 ];
 
 export const links = [
-  { name: 'Discover', to: '/', icon: HiOutlineHome },
   { name: 'Home', to: '/home', icon: HiOutlineHome },
+  { name: 'Discover', to: '/', icon: HiOutlineMap },
+  { name: 'Search', to: 'search', icon: HiOutlineSearch},
   { name: 'Around You', to: '/around-you', icon: HiOutlinePhotograph },
   { name: 'Top Artists', to: '/top-artists', icon: HiOutlineUserGroup },
   { name: 'Top Charts', to: '/top-charts', icon: HiOutlineHashtag },

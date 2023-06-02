@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 
 const DetailsHeader = ({ artistId, artistData, songData }) => {
 
-console.log(songData?.tracks[0].album.images[0].url)
-console.log(songData);
+// console.log(artistData);
+// console.log(artistData.artists[0].images[0].url)
+// console.log(songData);
+//console.log(artistId);
 return (
   <div className="relative w-full flex flex-col">
     <div className= "w-full bg-gradient-to-1 from-transparent to-black sm:h-48 h-28"/>
@@ -13,9 +15,8 @@ return (
       alt="alt"
       src=
       {
-        // artistId ? artistData?.artists[artistId].attributes?.
-      // artwork?.url.replace('{w}','500').replace('{h}','500')
-      // : 
+       artistId ? artistData?.artists[0].images[0].url.replace('{w}','500').replace('{h}','500')
+       : 
       songData?.tracks[0].album.images[0].url
       }
       className="sm:w-48 w-28 sm:h-48 h-28 rounded-full
@@ -24,10 +25,10 @@ return (
 
       <div className="ml-5">
         <p className="font=bold sm:text-3xl text-xl text-white">
-        {artistId ? artistData?.artists[artistId].attributes.name : songData?.tracks[0].name}
+        {artistId ? artistData?.artists[0].name : songData?.tracks[0].name}
         </p>
         {!artistId && (
-          <Link to={'/artists/${songData?.artists[0].adamid}'}>
+          <Link to={'/artists/${songData?.artists[0].id}'}>
           <p className="text-base text-gray-400 mt-2">
             {songData?.tracks[0].artists[0].name}
           </p>
@@ -36,7 +37,7 @@ return (
 
         <p className="text-base text-gray-400 mt-2">
           {artistId
-          ? artistData.genreNames[0]
+          ? artistData.artists[0].genres[0]
           : songData?.tracks[0].popularity
           }
         </p>

@@ -5,7 +5,7 @@ export const spotify23API = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://spotify23.p.rapidapi.com',
     prepareHeaders: (headers) => {
-      headers.set('X-RapidAPI-Key', 'c9b2502866msh1562b56ffc5a076p17e390jsnb44c2cd5ff67');
+      headers.set('X-RapidAPI-Key', '82921621d9msh86fa7c942990bfep1ca700jsnabd1b879902f');
 
       return headers;
     },
@@ -15,10 +15,11 @@ export const spotify23API = createApi({
     getRNBPlaylist: builder.query({query: () => '/playlist/?id=37i9dQZF1EQoqCH7BwIYb7'}),
     getTodaysHitsPlaylist: builder.query({query: () => '/playlist/?id=37i9dQZF1DXcBWIGoYBM5M'}),
     getNewReleasesPlaylist : builder.query({query: () => '/playlist/?id=37i9dQZF1DX4JAvHpjipBk'}),
-    getSongsBySearch: builder.query({query: (searchTerm) => `/search/?q=${searchTerm}&type=tracks`}),
+    getSongsBySearch: builder.query({query: ({searchTerm}) => `/search/?q=${searchTerm}&type=tracks`}),
     getSongsByID: builder.query({query: ({songid}) => `/tracks/?id=${songid}`}),
     getPlaylistTracksByID: builder.query({query: ({playlistid}) => `/playlist_tracks/?id=${playlistid}`}),
-    getPlaylistByID: builder.query({query: ({playlistid}) => `/playlist/?id=${playlistid}`}),
+    getPlaylistByID: builder.query({query: (playlistid) => `/playlist/?id=${playlistid}`}),
+    getArtistByID: builder.query({query: ({artistid}) => `/artists/?id=${artistid}`}),
   }),
 });
 
@@ -31,4 +32,5 @@ export const {
   useGetSongsByIDQuery,
   useGetPlaylistTracksByIDQuery,
   useGetPlaylistByIDQuery,
+  useGetArtistByIDQuery,
 } = spotify23API;

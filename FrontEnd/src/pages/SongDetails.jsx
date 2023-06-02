@@ -8,14 +8,16 @@ import { useGetSongsByIDQuery } from "../redux/services/Spotify23";
 const SongDetails = () => {
     const dispatch = useDispatch;
     const { songid } = useParams();
-    const { activeSong, isPlaying } = useSelector((state) =>
-    state.player);
-    const { data: songData, isFetching: isFetchingSongDetails, error } = useGetSongsByIDQuery({songid});
+    const { activeSong, isPlaying } = useSelector((state) => state.player);
+    const { data: songData, isFetching, error } = useGetSongsByIDQuery({songid});
 
     //console.log(songData.tracks[0]);
 
-    if (isFetchingSongDetails) return <Loader title="Searching song details" />;
+    if (isFetching) return <Loader title="Loading song details..." />;
     if (error) return <Error />;
+
+    console.log(songData?.tracks[0].album.images[0].url)
+    console.log(songData);
 
     return (
         <div className=" flex flex-col">
