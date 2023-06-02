@@ -7,6 +7,7 @@ import { useGetPlaylistByIDQuery, useGetPlaylistTracksByIDQuery } from "../redux
 
 const Playlist = () => {
     const { playlistid } = useParams();
+    console.log(playlistid);
     const { activeSong, isPlaying } = useSelector((state) => state.player);
     const { data, isFetching, error } = useGetPlaylistTracksByIDQuery({playlistid});
     const { data: playlistdata, isFetching: isFetchingPlaylist, error: playlistError} = useGetPlaylistByIDQuery({playlistid});
@@ -15,7 +16,6 @@ const Playlist = () => {
 
     if(error || playlistError) return <Error />;
 
-    console.log(playlistid);
     console.log(data);
     return (
         <div className="flex flex-col">

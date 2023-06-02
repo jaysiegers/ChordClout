@@ -11,7 +11,7 @@ export const spotify23API = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getTodaysHits: builder.query({ query: () => '/playlist_tracks/?id=3mMZ3xGAURyJ71YSpVcGCK&offset=0&limit=100'}),
+    getTodaysHits: builder.query({ query: () => '/playlist_tracks/?id=37i9dQZF1DXcBWIGoYBM5M&offset=0&limit=100'}),
     getRNBPlaylist: builder.query({query: () => '/playlist/?id=37i9dQZF1EQoqCH7BwIYb7'}),
     getTodaysHitsPlaylist: builder.query({query: () => '/playlist/?id=37i9dQZF1DXcBWIGoYBM5M'}),
     getNewReleasesPlaylist : builder.query({query: () => '/playlist/?id=37i9dQZF1DX4JAvHpjipBk'}),

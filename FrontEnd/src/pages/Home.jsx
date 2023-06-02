@@ -1,23 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { Error, Loader, PlaylistCard } from "../components"
-import { genres } from "../assets/constants"
-import { useGetNewReleasesPlaylistQuery, useGetRNBPlaylistQuery, useGetTodaysHitsPlaylistQuery, useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
+
+import { useGetPlaylistByIDQuery, useGetNewReleasesPlaylistQuery } from "../redux/services/Spotify23";
 
 const Home = () => {
     const dispatch = useDispatch();
     const {activePlaylist, isPlaying} = useSelector((state) => state.player);
-    const { data: todayshitsdata, isFetching: isFetching1, error: error1 } = useGetTodaysHitsPlaylistQuery();
-    const { data: rnbdata, isFetching: isFetching2, error: error2 } = useGetRNBPlaylistQuery();
-    const { data: newreleasedata, isFetching, error } = useGetNewReleasesPlaylistQuery();
+    const { data: todayshitsdata, isFetching, error } = useGetPlaylistByIDQuery('37i9dQZF1DXcBWIGoYBM5M');
+    const { data: viralhitsdata, isFetching: isFetching1, error: error1 } = useGetPlaylistByIDQuery('37i9dQZF1DX2L0iB23Enbq');
+    // const { data: newreleasedata, isFetching: isFetching2, error2 } = useGetPlaylistByIDQuery('37i9dQZF1DX4JAvHpjipBk');
+    const { data: newreleasedata, isFetching: isFetching2, error2 } = useGetNewReleasesPlaylistQuery();
+    const { data: softpophitsdata, isFetching: isFetching3, error: error3 } = useGetPlaylistByIDQuery('37i9dQZF1DWTwnEm1IYyoj');
     
     //const genreTitle = "R&B";
 
-    if(isFetching || isFetching1 || isFetching2) return <Loader title="Loading songs..." />;
+    if(isFetching || isFetching1 || isFetching2 || isFetching3) return <Loader title="Loading songs..." />;
 
-    if(error || error1 || error2) return <Error />;
+    if(error || error1 || error2 || error3) return <Error />;
 
-    const playlistdata = [ todayshitsdata, newreleasedata, rnbdata];
+    const playlistdata = [ todayshitsdata, newreleasedata, softpophitsdata, viralhitsdata ];
 
     console.log( playlistdata );
 

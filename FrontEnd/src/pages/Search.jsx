@@ -7,7 +7,7 @@ import { useGetNewReleasesPlaylistQuery, useGetRNBPlaylistQuery, useGetTodaysHit
 const Home = () => {
     const dispatch = useDispatch();
 
-//     Hiphop: 37i9dQZF1EQnqst5TRi17F
+// Hiphop: 37i9dQZF1EQnqst5TRi17F
 // Electronic: 37i9dQZF1EIeZKM1YFAtwx
 // Pop: 37i9dQZF1EQncLwOalG3K7
 // Alternative: 37i9dQZF1DX9GRpeH4CL0S
@@ -24,8 +24,8 @@ const Home = () => {
     const { data: popdata, isFetching, error } = useGetPlaylistByIDQuery('37i9dQZF1EQncLwOalG3K7');
     const { data: electronicdata, isFetching: isFetching1, error: error1 } = useGetPlaylistByIDQuery('37i9dQZF1EIeZKM1YFAtwx');
     const { data: rnbdata, isFetching: isFetching2, error: error2 } = useGetPlaylistByIDQuery('37i9dQZF1EQoqCH7BwIYb7');
-    // const { data: alternativedata, isFetching: isFetching3, error: error3 } = useGetPlaylistByIDQuery('37i9dQZF1DX9GRpeH4CL0S');
-    const { data: rockdata, isFetching: isFetching4, error: error4 } = useGetPlaylistByIDQuery('37i9dQZF1EQpj7X7UK8OOF');
+    // // const { data: alternativedata, isFetching: isFetching3, error: error3 } = useGetPlaylistByIDQuery('37i9dQZF1DX9GRpeH4CL0S');
+    // const { data: rockdata, isFetching: isFetching4, error: error4 } = useGetPlaylistByIDQuery('37i9dQZF1EQpj7X7UK8OOF');
     // const { data: latindata, isFetching: isFetching5, error: error5 } = useGetPlaylistByIDQuery('37i9dQZF1DXbLMw3ry7d7k');
     // const { data: filmdata, isFetching: isFetching6, error: error6 } = useGetPlaylistByIDQuery('37i9dQZF1DXb69UWhjrXsW');
     // const { data: countrydata, isFetching: isFetching7, error: error7 } = useGetPlaylistByIDQuery('37i9dQZF1DX1lVhptIYRda');
@@ -35,19 +35,23 @@ const Home = () => {
     
     //const genreTitle = "R&B";
 
-    if(isFetching0 || isFetching || isFetching1 || isFetching2  || isFetching4 
-      // || isFetching4  || isFetching5 
-      // || isFetching6 || isFetching7 || isFetching8 || isFetching9 || isFetching10
-      ) 
-    return <Loader title="Loading songs..." />;
+    // if(isFetching0 || isFetching || isFetching1 || isFetching2  || isFetching4 
+    //   // || isFetching4  || isFetching5 
+    //   // || isFetching6 || isFetching7 || isFetching8 || isFetching9 || isFetching10
+    //   ) 
+    // return <Loader title="Loading songs..." />;
 
-    if(error0 || error || error1 || error2  || error4 
-      // || error4 || error5 || error6 
-      // || error7 || error8 || error9 || error10
-      ) 
-      return <Error />;
+    
+    if(isFetching0 || isFetching || isFetching1 || isFetching2) return <Loader title="Loading songs..." />;
 
-    const playlistdata = [ popdata, hiphopdata, electronicdata, rnbdata,  rockdata, 
+    if(error0 || error || error1 || error2 
+      // || error4 
+    //   // || error4 || error5 || error6 
+    //   // || error7 || error8 || error9 || error10
+       ) 
+       return <Error />;
+
+    const playlistdata = [popdata, hiphopdata, electronicdata, rnbdata
       // alternativedata, latindata, filmdata,
     // countrydata, worldwidedata, housedata, kpopdata 
     ];
