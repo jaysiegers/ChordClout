@@ -2,13 +2,7 @@ import { Link } from "react-router-dom";
 
 const SongDetailsHeader = ( songData ) => {
   const SongData = [songData];
-  // const ArtistData = [ artistData ];
-// console.log(artistData);
-// console.log(artistData.artists[0].images[0].url)
-// console.log(songData.tracks[0]);
-console.log(SongData[0]?.SongData.tracks[0]);
-// console.log(ArtistData[0]?.ArtistData);
-//console.log(artistId);
+  
 return (
   <div className="relative w-full flex flex-col">
     <div className= "w-full bg-gradient-to-1 from-transparent to-black sm:h-48 h-28"/>
@@ -28,21 +22,15 @@ return (
       <div className="ml-5">
         <p className="font=bold sm:text-3xl text-xl text-white">
         {
-        // artistId ? artistData?.artists[0].name : 
         SongData[0].SongData.tracks[0].name}
         </p>
-        {/* {
-        !artistId && ( */}
           <Link to={`/artists/${SongData[0].SongData.tracks[0].artists[0].id}`}>
           <p className="text-base text-gray-400 mt-2">
             {SongData[0]?.SongData.tracks[0].artists[0].name}
           </p>
           </Link>
-        {/* )} */}
-
         <p className="text-base text-gray-400 mt-2">
-          {
-          // artistId ? artistData.artists[0].genres[0] : 
+          Popularity: {
           SongData[0]?.SongData.tracks[0].popularity
           }
         </p>

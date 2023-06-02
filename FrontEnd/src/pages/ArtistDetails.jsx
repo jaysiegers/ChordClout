@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { ArtistDetailsHeader, Error, Loader, RelatedSongs } from '../components';
+import { ArtistDetailsHeader, Error, Loader } from '../components';
 
 import { useGetArtistByIDQuery } from '../redux/services/Spotify23';
 
@@ -32,14 +31,6 @@ const ArtistDetails = () => {
                     }
                 </div>
             </div>
-
-
-      {/* <RelatedSongs
-        data={artistData?.data[0].views['top-songs']?.data}
-        artistId={artistid}
-        isPlaying={isPlaying}
-        activeSong={activeSong}
-      /> */}
     </div>
   );
 };
