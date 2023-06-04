@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { logo } from '../assets';
@@ -17,3 +18,15 @@ const Profile = () => {
   }
 
 export default Profile;
+=======
+import React from 'react'
+import {profile} from '../assets'
+
+function Profile() {
+  return (
+    <div>Profile</div>
+  )
+}
+
+export default Profile
+>>>>>>> 4a96a647965d403853d697f09db8a9c798906f7f
