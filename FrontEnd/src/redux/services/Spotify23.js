@@ -5,14 +5,14 @@ export const spotify23API = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://spotify23.p.rapidapi.com',
     prepareHeaders: (headers) => {
-      headers.set('X-RapidAPI-Key', '82921621d9msh86fa7c942990bfep1ca700jsnabd1b879902f');
+      headers.set('X-RapidAPI-Key', 'cab53f2e5emsh7513f12c9b2518fp1e16bejsn4f3245f5d636');
 
       return headers;
     },
   }),
   endpoints: (builder) => ({
     getTodaysHits: builder.query({ query: () => '/playlist_tracks/?id=37i9dQZF1DXcBWIGoYBM5M&offset=0&limit=100'}),
-    getSongsBySearch: builder.query({query: ({searchTerm}) => `/search/?q=${searchTerm}&type=tracks`}),
+    getSongsBySearch: builder.query({query: (searchTerm) => `/search/?q=${searchTerm}&type=tracks`}),
     getSongsByID: builder.query({query: (songid) => `/tracks/?id=${songid}`}),
     getSongLyricsByID: builder.query({query: (songid) => `/track_lyrics/?id=${songid}`}),
     getPlaylistTracksByID: builder.query({query: (playlistid) => `/playlist_tracks/?id=${playlistid}`}),

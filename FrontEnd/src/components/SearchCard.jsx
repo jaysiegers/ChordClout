@@ -9,7 +9,7 @@ import { playPause, setActiveSong } from '../redux/features/playerSlice';
 import { useGetSongsByIDQuery } from '../redux/services/Spotify23';
 
 const SearchCard = ({songid, song, isPlaying, activeSong, i}) => {
-  const { data, isFetching, error } = useGetSongsByIDQuery({songid});
+  const { data: songData, isFetching, error } = useGetSongsByIDQuery(songid);
 
   const dispatch = useDispatch ();
   
@@ -27,14 +27,14 @@ const SearchCard = ({songid, song, isPlaying, activeSong, i}) => {
 
   if (error) return <Error />;
 
-  console.log(data)
+  console.log(songData)
   console.log(songid)
 
   return (
   <div className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg curser-pointer">
     <div className="relative w-full h-56 group"> 
       <div className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex 
-      ${activeSong?.track === data.tracks[0] ? 'flex bg-black bg-opacity-70' :'hidden'}
+      ${activeSong?.track === songData.tracks[0] ? 'flex bg-black bg-opacity-70' :'hidden'}
       `}> 
         <PlayPause 
           isPlaying={isPlaying}
@@ -44,17 +44,17 @@ const SearchCard = ({songid, song, isPlaying, activeSong, i}) => {
           handlePlay={handlePlayClick}
         />
       </div>
-      <img alt="song_img" src={data.tracks[0].album.images[0].url}/>
+      <img alt="song_img" src={songData.tracks[0].album.images[0].url}/>
     </div>
     <div className="mt-4 flex flex-col">
       <p className="font-semibold text-lg text-white truncate">
-        <Link to={`/songs/${data?.tracks[0].id}`}>
-        {data.tracks[0].name}
+        <Link to={`/songs/${songData?.tracks[0].id}`}>
+        {songData.tracks[0].name}
         </Link>
       </p>
       <p className="text-sm truncate text-gray-300 mt-1">
-        <Link to={data.tracks[0].artists[0].name ? `/artists/${data?.tracks[0].artists[0]?.id}` : '/top-artists'}>
-        {data.tracks[0].artists[0]?.name}
+        <Link to={songData.tracks[0].artists[0].name ? `/artists/${songData?.tracks[0].artists[0]?.id}` : '/top-artists'}>
+        {songData.tracks[0].artists[0]?.name}
         </Link>
       </p>
 

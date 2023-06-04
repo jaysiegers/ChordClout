@@ -7,7 +7,7 @@ import { useGetSongsBySearchQuery } from '../redux/services/Spotify23';
 
 const SearchResult = () => {
   const {searchTerm} = useParams();
-  const { data, isFetching, error } = useGetSongsBySearchQuery({searchTerm});
+  const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
   // const songs = data?.tracks?.hits?.map((song) => song.track);
@@ -18,7 +18,7 @@ const SearchResult = () => {
 
   if (error) return <Error />;
 
-  console.log(data?.tracks?.items[0].data?.id)
+  // console.log(data?.tracks?.items[0].data?.id)
   console.log(data?.tracks?.items)
   console.log(data)
 
@@ -38,7 +38,7 @@ const SearchResult = () => {
           /> */}
         {data?.tracks?.items?.map((songid, song, i) => (
           <SearchCard
-            id={songid}
+            songid={data?.tracks?.items[i].data.id}
             key={song.key}
             song={song}
             isPlaying={isPlaying}

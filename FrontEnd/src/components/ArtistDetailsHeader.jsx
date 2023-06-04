@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 const ArtistDetailsHeader = ( artistData ) => {
-  const ArtistData = [artistData];
-  // const ArtistData = [ artistData ];
 // console.log(artistData);
 // console.log(artistData.artists[0].images[0].url)
 // console.log(songData.tracks[0]);
@@ -22,7 +20,6 @@ return (
       src=
       {
         artistData.artistData.data.artist.visuals.avatarImage.sources[0].url.replace('{w}','500').replace('{h}','500') 
-    //   SongData[0]?.SongData.tracks[0].album.images[0].url
       }
       className="sm:w-48 w-28 sm:h-48 h-28 rounded-full
       object-cover border-2 shadow-xl shadow-black"
