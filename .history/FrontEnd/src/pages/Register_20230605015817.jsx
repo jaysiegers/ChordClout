@@ -28,21 +28,21 @@ const Register = () => {
       <div className="flex flex-col text-center bg-white object-right px-[315px] py-[300px]">
         <input
           type="text"
-          className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
+          className="bg-slate-300 p-2 text-lg mb-2 rounded-lg"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Full Name"
         />
         <input
           type="text"
-          className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
+          className="bg-slate-300 p-2 text-lg mb-2 rounded-lg"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <input
           type="password"
-          className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
+          className="bg-slate-300 p-2 text-lg mb-2 rounded-lg"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"

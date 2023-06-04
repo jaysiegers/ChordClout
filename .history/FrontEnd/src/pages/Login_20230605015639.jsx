@@ -1,38 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { auth, signInWithGoogle, logInWithEmailAndPassword } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { poster } from "../assets";
-import {
-  auth,
-  registerWithEmailAndPassword,
-  signInWithGoogle,
-} from "../firebase";
 
-const Register = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  const register = () => {
-    if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password);
-  };
   useEffect(() => {
-    if (loading) return;
-    if (user) navigate("/login", { replace: true });
+    if (loading) {
+      return;
+    }
+    if (user) navigate("/dashboard");
   }, [user, loading]);
   return (
     <div className="h-screen w-screen flex items-center justify-center mx-[125px]">
-      <img src={poster} alt="poster" className="absolute inset-y-0 left-0 w-auto h-full"/>
+        <img src={poster} alt="poster" className="absolute inset-y-0 left-0 w-auto h-full"/>
       <div className="flex flex-col text-center bg-white object-right px-[315px] py-[300px]">
-        <input
-          type="text"
-          className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
-        />
         <input
           type="text"
           className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
@@ -47,20 +33,23 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button className="p-2 text-lg mb-2 text-white bg-black rounded-lg" onClick={register}>
-          Register
-        </button>
         <button
-          className="register__btn register__google"
-          onClick={signInWithGoogle}
+          className="p-2 text-lg mb-2 text-white bg-black rounded-lg"
+          onClick={() => logInWithEmailAndPassword(email, password)}
         >
-          Register with Google
+          Login
         </button>
+        <button className="p-2 text-lg mb-2 text-white bg-blue-500 rounded-lg" onClick={signInWithGoogle}>
+          Login with Google
+        </button>
+        {/* <div>
+          <Link to="/reset">Forgot Password</Link>
+        </div> */}
         <div>
-          Already have an account? <Link to="/login" className="text-black underline underline-offset-1">Login</Link> now.
+          Don't have an account? <Link to="/register" className="text-black">Register</Link> now.
         </div>
       </div>
     </div>
   );
 }
-export default Register;
+export default Login;
