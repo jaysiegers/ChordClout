@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Error, Loader, PlaylistCard, Searchbar } from "../components"
 import { useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
 
-const Home = () => {
+const Search = () => {
 // Hiphop: 37i9dQZF1EQnqst5TRi17F
 // Electronic: 37i9dQZF1EIeZKM1YFAtwx
 // Pop: 37i9dQZF1EQncLwOalG3K7
@@ -61,7 +61,7 @@ const Home = () => {
             <div className="w-full flex justify-between items-center 
             sm:flex-row flex-col mt-4 mb-10">
                 <div className="font-bold text-3xl
-                 text-white">Home</div>
+                 text-white">Search for songs or artists</div>
             </div>
 
             <div className="flex flex-wrap 
@@ -80,4 +80,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Search;
