@@ -7,6 +7,7 @@ import ArtistCard from './ArtistCard';
 import SongDetailsHeader from './SongDetailsHeader';
 import ArtistDetailsHeader from './ArtistDetailsHeader'
 import SongBar from './SongBar';
+import Profile from './Profile';
 import MusicPlayer from './MusicPlayer';
 import Loader from './Loader';
 import Error from './Error';
@@ -21,6 +22,7 @@ export {
   SongDetailsHeader,
   ArtistDetailsHeader,
   SongBar,
+  Profile,
   MusicPlayer,
   Loader,
   Error,
