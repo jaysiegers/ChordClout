@@ -8,7 +8,6 @@ import { useGetPlaylistTracksByIDQuery } from "../redux/services/Spotify23";
 const Discover = () => {
     const dispatch = useDispatch();
     const {activeSong, isPlaying, genreListId} = useSelector((state) => state.player);
-    // const { data, isFetching, error } = useGetTodaysHitsQuery();
     const { data, isFetching, error } = useGetPlaylistTracksByIDQuery( genreListId || '37i9dQZF1EQoqCH7BwIYb7');
 
     if(isFetching) return <Loader title="Loading songs..." />;

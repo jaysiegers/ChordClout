@@ -1,11 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { Error, Loader, PlaylistCard, Searchbar } from "../components"
 import { useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
 
 const Home = () => {
-    const dispatch = useDispatch();
-
 // Hiphop: 37i9dQZF1EQnqst5TRi17F
 // Electronic: 37i9dQZF1EIeZKM1YFAtwx
 // Pop: 37i9dQZF1EQncLwOalG3K7

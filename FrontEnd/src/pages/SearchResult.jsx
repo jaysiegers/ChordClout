@@ -36,9 +36,8 @@ const SearchResult = () => {
             data={data}
             i={i}
           /> */}
-        {data?.tracks?.items?.map((songid, song, i) => (
+        {data?.tracks?.items.map(( song, i) => (
           <SearchCard
-            songid={data?.tracks?.items[i].data.id}
             key={song.key}
             song={song}
             isPlaying={isPlaying}

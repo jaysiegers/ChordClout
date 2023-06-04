@@ -8,8 +8,8 @@ import { playPause, setActiveSong } from '../redux/features/playerSlice';
 
 import { useGetSongsByIDQuery } from '../redux/services/Spotify23';
 
-const SearchCard = ({songid, song, isPlaying, activeSong, i}) => {
-  const { data: songData, isFetching, error } = useGetSongsByIDQuery(songid);
+const SearchCard = ({song, isPlaying, activeSong, i}) => {
+  const { data: songData, isFetching, error } = useGetSongsByIDQuery(song?.data.id);
 
   const dispatch = useDispatch ();
   
@@ -27,8 +27,9 @@ const SearchCard = ({songid, song, isPlaying, activeSong, i}) => {
 
   if (error) return <Error />;
 
-  console.log(songData)
-  console.log(songid)
+  console.log(songData.tracks)
+  console.log(songData.tracks[0].album)
+  // console.log(song)
 
   return (
   <div className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg curser-pointer">

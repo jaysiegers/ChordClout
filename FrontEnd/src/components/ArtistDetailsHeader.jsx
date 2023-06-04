@@ -17,18 +17,14 @@ return (
     <div className="absolute inset-0 flex items-center">
       <img
       alt="alt"
-      src=
-      {
-        artistData.artistData.data.artist.visuals.avatarImage.sources[0].url.replace('{w}','500').replace('{h}','500') 
-      }
+      src={artistData.artistData.data.artist.visuals.avatarImage.sources[0].url.replace('{w}','500').replace('{h}','500') }
       className="sm:w-48 w-28 sm:h-48 h-28 rounded-full
       object-cover border-2 shadow-xl shadow-black"
       />
 
       <div className="ml-5">
         <p className="font=bold sm:text-3xl text-xl text-white">
-        {
-        artistData.artistData.data.artist.profile.name}
+        {artistData.artistData.data.artist.profile.name}
         </p>
 
         <p className="text-base text-gray-200 mt-2">
