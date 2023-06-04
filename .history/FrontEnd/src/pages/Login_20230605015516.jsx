@@ -21,14 +21,14 @@ const Login = () => {
       <div className="flex flex-col text-center bg-white object-right px-[315px] py-[300px]">
         <input
           type="text"
-          className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
+          className="border-4 border-slate-800 bg-slate-300 p-2 text-lg mb-2 rounded-lg"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <input
           type="password"
-          className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
+          className="bg-slate-300 p-2 text-lg mb-2 rounded-lg"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
@@ -42,11 +42,11 @@ const Login = () => {
         <button className="p-2 text-lg mb-2 text-white bg-blue-500 rounded-lg" onClick={signInWithGoogle}>
           Login with Google
         </button>
-        {/* <div>
-          <Link to="/reset">Forgot Password</Link>
-        </div> */}
         <div>
-          Don't have an account? <Link to="/register" className="text-black underline underline-offset-1">Register</Link> now.
+          <Link to="/reset">Forgot Password</Link>
+        </div>
+        <div>
+          Don't have an account? <Link to="/register" className="text-black">Register</Link> now.
         </div>
       </div>
     </div>
