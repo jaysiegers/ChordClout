@@ -5,6 +5,8 @@ import Search from './Search';
 import SearchResult from './SearchResult';
 import Home from './Home';
 import Playlist from './Playlist';
+import Login from './Login';
+import Register from './Register';
 
 export {
   Discover,
@@ -14,4 +16,6 @@ export {
   SongDetails,
   Home,
   Playlist,
+  Login,
+  Register
 };
