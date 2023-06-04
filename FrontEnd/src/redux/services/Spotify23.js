@@ -12,7 +12,7 @@ export const spotify23API = createApi({
   }),
   endpoints: (builder) => ({
     getTodaysHits: builder.query({ query: () => '/playlist_tracks/?id=37i9dQZF1DXcBWIGoYBM5M&offset=0&limit=100'}),
-    getSongsBySearch: builder.query({query: (searchTerm) => `/search/?q=${searchTerm}&type=tracks&limit=4`}),
+    getSongsBySearch: builder.query({query: (searchTerm) => `/search/?q=${searchTerm}&type=multi&limit=4`}),
     getSongsByID: builder.query({query: (songid) => `/tracks/?id=${songid}`}),
     getSongLyricsByID: builder.query({query: (songid) => `/track_lyrics/?id=${songid}`}),
     getPlaylistTracksByID: builder.query({query: (playlistid) => `/playlist_tracks/?id=${playlistid}`}),
