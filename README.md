@@ -1,5 +1,5 @@
 <p align="center" width="100%">
-    <img src="https://media.discordapp.net/attachments/896801300229021698/1115284160173592626/ChordClout_Large.png?width=1000&height=1000">
+    <img src="https://cdn.discordapp.com/attachments/896801300229021698/1115286584456130610/ChordClout_Large-removebg-preview.png">
 </p>
 
 ## App description 🎧
