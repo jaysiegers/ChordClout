@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Error, Loader, PlaylistCard } from "../components"
+import { Error, Loader, PlaylistCard, Profile } from "../components"
 
 import { useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
 
@@ -47,6 +47,7 @@ const Home = () => {
 
     return (
         <div className="flex flex-col">
+            <Profile/>
             <div className="w-full flex justify-between items-center 
             sm:flex-row flex-col mt-4 mb-10">
                 <div className="font-bold text-3xl

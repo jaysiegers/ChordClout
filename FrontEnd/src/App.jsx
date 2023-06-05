@@ -9,10 +9,12 @@ import { auth } from './firebase';
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
+  const { user } = useAuthState(auth);
+
   return (
     <div className="relative flex">
       <Sidebar />
-      <Profile />
+      {/* <Profile /> */}
       <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#a900b1]">
         <div className="px-6 h-[calc(100vh-0px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">

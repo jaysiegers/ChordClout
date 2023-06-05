@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { SongDetailsHeader, Error, Loader } from "../components";
+import { SongDetailsHeader, Error, Loader, Profile } from "../components";
 
 import { useGetSongsByIDQuery, useGetSongLyricsByIDQuery } from "../redux/services/Spotify23";
 
@@ -29,6 +29,7 @@ const SongDetails = () => {
 
     return (
         <div className=" flex flex-col">
+            <Profile/>
             <SongDetailsHeader SongData= {songData} />
             <div className="mb-10">
                 <h2 className="text-white text-3xl

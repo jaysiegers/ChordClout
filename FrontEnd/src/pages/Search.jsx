@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-import { Error, Loader, PlaylistCard, Searchbar } from "../components"
+import { Error, Loader, PlaylistCard, Searchbar, Profile } from "../components"
 import { useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
 
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -70,6 +70,7 @@ const Search = () => {
 
     return (
         <div className="flex flex-col">
+          <Profile/>
           <Searchbar/>
             <div className="w-full flex justify-between items-center 
             sm:flex-row flex-col mt-4 mb-10">

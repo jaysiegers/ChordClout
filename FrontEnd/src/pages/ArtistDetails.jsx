@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArtistDetailsHeader, Error, Loader } from '../components';
+import { ArtistDetailsHeader, Error, Loader, Profile } from '../components';
 
 import { useGetArtistByIDQuery } from '../redux/services/Spotify23';
 
@@ -27,6 +27,7 @@ const ArtistDetails = () => {
 
   return (
     <div className="flex flex-col">
+      <Profile/>
       <ArtistDetailsHeader
         artistData={artistData}
       />

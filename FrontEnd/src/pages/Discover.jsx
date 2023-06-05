@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Error, Loader, SongCard} from "../components"
+import { Error, Loader, SongCard, Profile} from "../components"
 import { genres } from "../assets/constants"
 import {selectGenreListId} from '../redux/features/playerSlice';
 import { useGetPlaylistTracksByIDQuery } from "../redux/services/Spotify23";
@@ -30,13 +30,14 @@ const Discover = () => {
 
     return (
         <div className="flex flex-col">
+            <Profile/>
             <div className="w-full flex justify-between items-center 
             sm:flex-row flex-col mt-4 mb-10">
                 <div className="font-bold text-3xl
                  text-white">Discover {genreTitle}</div>
                 <select onChange={(e) => dispatch (selectGenreListId(e.target.value))}
                     value={genreListId || 'R&B'}
-                    className="bg-black text-gray-300 p-3
+                    className="absolute top-10 bg-black text-gray-300 p-3
                     text-sm rounded-lg outline-none sm:mt-0 mt-5"
                 >
                     {genres.map((genre) => <option key={genre.value}

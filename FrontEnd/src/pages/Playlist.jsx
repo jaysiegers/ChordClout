@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
-import { Error, Loader, SongCard } from "../components"
+import { Error, Loader, SongCard, Profile } from "../components"
 
 import { useGetPlaylistByIDQuery, useGetPlaylistTracksByIDQuery } from "../redux/services/Spotify23";
 
@@ -18,7 +18,7 @@ const Playlist = () => {
         if (loading) return;
         if (!user) return navigate("/login");
     });
-    
+
     const { playlistid } = useParams();
     console.log(playlistid);
     const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -32,6 +32,7 @@ const Playlist = () => {
     console.log(data);
     return (
         <div className="flex flex-col">
+            <Profile/>
             <div className="w-full flex justify-between items-center 
             sm:flex-row flex-col mt-4 mb-10">
                 <div className="font-bold text-3xl

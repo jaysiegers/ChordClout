@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {useParams, useNavigate} from 'react-router-dom';
 
-import { Error, Loader, ArtistCard, SearchCard } from '../components';
+import { Error, Loader, ArtistCard, SearchCard, Profile } from '../components';
 import { useGetSongsBySearchQuery } from '../redux/services/Spotify23';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -30,6 +30,7 @@ const SearchResult = () => {
 
   return (
     <div className="flex flex-col">
+      <Profile/>
       <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">Showing song results for <span className="font-black">{searchTerm}</span></h2>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
