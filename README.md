@@ -1,5 +1,6 @@
 <p align="center" width="100%">
-    <img src="">
+    <img src="![image](https://github.com/jaysiegers/ChordClout/assets/91464711/1c9324c2-065c-4cc0-a4b3-e0adc9b40826)
+">
 </p>
 
 ## App description 🎧
