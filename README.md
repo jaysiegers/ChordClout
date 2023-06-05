@@ -1,4 +1,6 @@
-![ChordClout Large](https://github.com/jaysiegers/ChordClout/assets/91464711/540a0566-7e2f-4a79-9d67-5534c61a7281)
+<p align="center" width="100%">
+    <img src="https://media.discordapp.net/attachments/896801300229021698/1115284160173592626/ChordClout_Large.png?width=1000&height=1000">
+</p>
 
 ## App description 🎧
 Chord Clout is a digital music service website application that allows users to stream and listen to their favorite songs, playlists and albums, and discover new music. Chord Clout use a sleek and user-friendly interface makes it easy for users to access a wide variety of songs and customize their listening experience.
