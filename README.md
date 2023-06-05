@@ -32,14 +32,12 @@ Chord Clout is a digital music service website application that allows users to 
 - Firebase ( for backend as a service )
 - Firebase ( for cloud hosting database )
 
-## Run The web 💻
+## Run in Local Machine 💻
 1. Install Node.js and React 
 2. Clone this repository https://github.com/jaysiegers/ChordClout.git
 3. Open your VSC and select chordclout/frontend directory
 4. Install all the requirements and library
-6. Go to the frontend directory 
-8. Run the program using 'npm run dev' 
-9. Open your localhost:3000
-
-## Web Video 📀
+5. Go to the frontend directory 
+6. Run the program using 'npm run dev' 
+7. Open your localhost:3000
 
