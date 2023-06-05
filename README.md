@@ -15,8 +15,8 @@ Chord Clout is a digital music service website application that allows users to 
 ## Main Features ✨
 - Login and Registration Authentication
 - Streaming Free Music
-- Personalized playlists
-- Wide Variety of Songs By Genre
+- Personalized Playlists
+- Wide Variety of Songs by Genre
 - Details of Songs and Artists
 
 ## Tools and Library 🛠️
