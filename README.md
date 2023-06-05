@@ -2,20 +2,21 @@
     <img src="">
 </p>
 
-PPt = https://www.canva.com/design/DAFksPsMg6o/GeXXhLlR71VbIeVgPzA1hw/edit?utm_content=DAFksPsMg6o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
 ## App description 🎧
 Chord Clout is a digital music service website application that allows users to stream and listen to their favorite songs, playlists and albums, and discover new music. Chord Clout use a sleek and user-friendly interface makes it easy for users to access a wide variety of songs and customize their listening experience.
+
 ## Contributors 👨‍👧‍👦
 1.     Chellshe Love Simrochelle - 2502043040
 2.     Jairo Nathanael Immanuel Siegers - 2502042971
 3.     Jonathan Prasetyo - 2501982613
+
 ## Main Features ✨
 - Login and Registration Authentication
 - Streaming Free Music
 - Customizable Playlist 
 - List of Liked Music
 - Information About The music
+
 ## Tools and Library 🛠️
 - React 
 - Nodejs
@@ -29,6 +30,7 @@ Chord Clout is a digital music service website application that allows users to 
 - Rapid API ( spotify23 API )
 - Firebase ( for backend as a service )
 - Firebase ( for cloud hosting database )
+
 ## Run The web 💻
 1. Install Node.js and React 
 2. Clone this repositories https://github.com/jaysiegers/ChordClout.git
@@ -39,5 +41,6 @@ Chord Clout is a digital music service website application that allows users to 
 7. Install the package using 'npm install' 
 8. Run the program using 'npm run dev' 
 9. Go to the direct link 
+
 ## Web Video 📀
 
