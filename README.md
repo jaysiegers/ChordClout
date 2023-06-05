@@ -38,5 +38,5 @@ Chord Clout is a digital music service website application that allows users to 
 7. Install the package using 'npm install' 
 8. Run the program using 'npm run dev' 
 9. Go to the direct link 
-## Our Web Video 📀
+## Web Video 📀
 
