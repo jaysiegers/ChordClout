@@ -13,9 +13,9 @@ Chord Clout is a digital music service website application that allows users to 
 ## Main Features ✨
 - Login and Registration Authentication
 - Streaming Free Music
-- Customizable Playlist 
-- List of Liked Music
-- Information About The music
+- Personalized playlists
+- Wide Variety of Songs By Genre
+- Details of Songs and Artists
 
 ## Tools and Library 🛠️
 - React 
@@ -25,7 +25,6 @@ Chord Clout is a digital music service website application that allows users to 
 - Vite
 - Figma
 - Canva
-- Github
 - Virtual Studio Code
 - Rapid API ( spotify23 API )
 - Firebase ( for backend as a service )
@@ -33,14 +32,12 @@ Chord Clout is a digital music service website application that allows users to 
 
 ## Run The web 💻
 1. Install Node.js and React 
-2. Clone this repositories https://github.com/jaysiegers/ChordClout.git
-3. Open your VSC and select chordclout folder 
-4. Install rapidAPI extension in VSC
-5. Log in and subscribe Spotify API
-6. Open terminal and run this command 'cd FrontEnd' 
-7. Install the package using 'npm install' 
+2. Clone this repository https://github.com/jaysiegers/ChordClout.git
+3. Open your VSC and select chordclout/frontend directory
+4. Install all the requirements and library
+6. Go to the frontend directory 
 8. Run the program using 'npm run dev' 
-9. Go to the direct link 
+9. Open your localhost:3000
 
 ## Web Video 📀
 
