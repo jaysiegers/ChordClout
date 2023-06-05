@@ -18,7 +18,7 @@ const Login = () => {
   return (
     <div className="h-screen w-screen flex items-center justify-center mx-[125px]">
         <img src={poster} alt="poster" className="absolute inset-y-0 left-0 w-auto h-full"/>
-      <div className="flex flex-col text-center bg-white object-right px-[350px] py-[300px]">
+      <div className="flex flex-col text-center bg-white object-right px-[350px] py-[500px]">
         <input
           type="text"
           className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
