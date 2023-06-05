@@ -2,6 +2,7 @@
     <img src="">
 </p>
 
+PPt = https://www.canva.com/design/DAFksPsMg6o/GeXXhLlR71VbIeVgPzA1hw/edit?utm_content=DAFksPsMg6o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## App description 🎧
 Chord Clout is a digital music service website application that allows users to stream and listen to their favorite songs, playlists and albums, and discover new music. Chord Clout use a sleek and user-friendly interface makes it easy for users to access a wide variety of songs and customize their listening experience.
