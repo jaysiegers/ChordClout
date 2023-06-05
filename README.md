@@ -28,3 +28,13 @@ Chord Clout is a digital music service website application that allows users to 
 - Rapid API ( spotify23 API )
 - Firebase ( for backend as a service )
 - Firebase ( for cloud hosting database )
+## Run The web 💻
+1. Install Node.js and React 
+2. Clone this repositories https://github.com/jaysiegers/ChordClout.git
+3. Open your VSC and select chordclout folder 
+4. Install rapidAPI extension in VSC
+5. Log in and subscribe Spotify API
+6. Open terminal and run this command ' cd FrontEnd ' 
+7. Install the package using ' npm install ' 
+8. Run the program using ' npm run dev ' 
+9. Go to the direct link 
