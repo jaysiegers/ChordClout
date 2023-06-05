@@ -20,8 +20,7 @@ Chord Clout is a digital music service website application that allows users to 
 - Details of Songs and Artists
 
 ## Tools and Library 🛠️
-- React 
-- Nodejs
+- Reactjs
 - Redux
 - Tailwind CSS
 - Vite
@@ -40,4 +39,3 @@ Chord Clout is a digital music service website application that allows users to 
 5. Go to the frontend directory 
 6. Run the program using 'npm run dev' 
 7. Open your localhost:3000
-
