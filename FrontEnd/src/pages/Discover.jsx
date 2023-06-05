@@ -1,14 +1,26 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 import { Error, Loader, SongCard} from "../components"
 import { genres } from "../assets/constants"
 import {selectGenreListId} from '../redux/features/playerSlice';
 import { useGetPlaylistTracksByIDQuery } from "../redux/services/Spotify23";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+
 const Discover = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [user, loading, errorauth] = useAuthState(auth);
     const {activeSong, isPlaying, genreListId} = useSelector((state) => state.player);
     const { data, isFetching, error } = useGetPlaylistTracksByIDQuery( genreListId || '37i9dQZF1EQoqCH7BwIYb7');
+
+    useEffect(() => {
+
+        if (loading) return;
+        if (!user) return navigate("/login");
+      });
 
     if(isFetching) return <Loader title="Loading songs..." />;
 

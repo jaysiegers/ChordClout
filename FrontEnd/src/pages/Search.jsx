@@ -1,9 +1,22 @@
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 import { Error, Loader, PlaylistCard, Searchbar } from "../components"
 import { useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+
+
 const Search = () => {
+  const [user, loading, errorauth] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+
+    if (loading) return;
+    if (!user) return navigate("/login");
+  });
 // Hiphop: 37i9dQZF1EQnqst5TRi17F
 // Electronic: 37i9dQZF1EIeZKM1YFAtwx
 // Pop: 37i9dQZF1EQncLwOalG3K7
@@ -16,7 +29,7 @@ const Search = () => {
 // Reggae: 37i9dQZF1EQpjs4F0vUZ1x
 // House: 37i9dQZF1DXd5DCuoVuFY3
 // K-pop: 37i9dQZF1DX9tPFwDMOaN1
-    const {isPlaying} = useSelector((state) => state.player);
+
     const { data: hiphopdata, isFetching: isFetching0, error: error0 } = useGetPlaylistByIDQuery('37i9dQZF1EQnqst5TRi17F');
     const { data: popdata, isFetching, error } = useGetPlaylistByIDQuery('37i9dQZF1EQncLwOalG3K7');
     const { data: electronicdata, isFetching: isFetching1, error: error1 } = useGetPlaylistByIDQuery('37i9dQZF1EIeZKM1YFAtwx');
@@ -70,7 +83,6 @@ const Search = () => {
                     <PlaylistCard
                     key={playlist.key}
                     playlist={playlist}
-                    isPlaying={isPlaying}
                     data={playlistdata}
                     i={i}
                     />

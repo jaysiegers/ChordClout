@@ -1,11 +1,24 @@
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 import { Error, Loader, SongCard } from "../components"
 
 import { useGetPlaylistByIDQuery, useGetPlaylistTracksByIDQuery } from "../redux/services/Spotify23";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+
 const Playlist = () => {
+    const [user, loading, errorauth] = useAuthState(auth);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+
+        if (loading) return;
+        if (!user) return navigate("/login");
+    });
+    
     const { playlistid } = useParams();
     console.log(playlistid);
     const { activeSong, isPlaying } = useSelector((state) => state.player);

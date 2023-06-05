@@ -13,7 +13,7 @@ const Login = () => {
     if (loading) {
       return;
     }
-    if (user) navigate("/dashboard");
+    if (user) navigate("/");
   }, [user, loading]);
   return (
     <div className="h-screen w-screen flex items-center justify-center mx-[125px]">

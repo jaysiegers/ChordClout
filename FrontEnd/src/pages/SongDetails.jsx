@@ -1,9 +1,21 @@
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { SongDetailsHeader, Error, Loader } from "../components";
 
 import { useGetSongsByIDQuery, useGetSongLyricsByIDQuery } from "../redux/services/Spotify23";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+
 const SongDetails = () => {
+    const [user, loading, errorauth] = useAuthState(auth);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (loading) return;
+        if (!user) return navigate("/login");
+    });
+
     const { songid } = useParams();
     const { data: songData, isFetching, error } = useGetSongsByIDQuery(songid);
     const { data: lyricsData, isFetching: lyricsIsFetching, error: lyricserror} = useGetSongLyricsByIDQuery(songid);

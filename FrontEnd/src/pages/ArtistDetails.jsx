@@ -1,10 +1,22 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ArtistDetailsHeader, Error, Loader } from '../components';
 
 import { useGetArtistByIDQuery } from '../redux/services/Spotify23';
 
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
+
 const ArtistDetails = () => {
+  const [user, loading, errorauth] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return navigate("/login");
+  });
+
   const { artistid } = useParams();
   const { data: artistData, isFetching, error } = useGetArtistByIDQuery(artistid);
   

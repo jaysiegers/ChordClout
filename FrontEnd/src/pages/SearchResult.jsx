@@ -1,11 +1,23 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 
 import { Error, Loader, ArtistCard, SearchCard } from '../components';
 import { useGetSongsBySearchQuery } from '../redux/services/Spotify23';
 
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
+
 const SearchResult = () => {
+  const [user, loading, errorauth] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+      if (loading) return;
+      if (!user) return navigate("/login");
+  });
+  
   const {searchTerm} = useParams();
   const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm);
   const { activeSong, isPlaying } = useSelector((state) => state.player);

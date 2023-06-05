@@ -31,7 +31,7 @@ const Register = () => {
           className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
+          placeholder="Name"
         />
         <input
           type="text"

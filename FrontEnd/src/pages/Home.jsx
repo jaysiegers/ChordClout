@@ -1,11 +1,37 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Error, Loader, PlaylistCard } from "../components"
 
 import { useGetPlaylistByIDQuery } from "../redux/services/Spotify23";
 
+import {collection, query, getDocs, where } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db } from "../firebase";
+
 const Home = () => {
-    const {isPlaying} = useSelector((state) => state.player);
+  const [user, loading, errorauth] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+  const fetchUserName = async () => {
+    try {
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc = await getDocs(q);
+      const userdata = doc.docs[0].data();
+      setName(userdata.name);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+    
+  useEffect(() => {
+
+    if (loading) return;
+    if (!user) return navigate("/login");
+    fetchUserName();
+  });
+    
     const { data: todayshitsdata, isFetching, error } = useGetPlaylistByIDQuery('37i9dQZF1DXcBWIGoYBM5M');
     const { data: viralhitsdata, isFetching: isFetching1, error: error1 } = useGetPlaylistByIDQuery('37i9dQZF1DX2L0iB23Enbq');
     const { data: newreleasedata, isFetching: isFetching2, error2 } = useGetPlaylistByIDQuery('37i9dQZF1DX4JAvHpjipBk');
@@ -24,7 +50,7 @@ const Home = () => {
             <div className="w-full flex justify-between items-center 
             sm:flex-row flex-col mt-4 mb-10">
                 <div className="font-bold text-3xl
-                 text-white">Home</div>
+                 text-white">Welcome, {name}</div>
             </div>
 
             <div className="flex flex-wrap 
@@ -33,7 +59,6 @@ const Home = () => {
                     <PlaylistCard
                     key={playlist.key}
                     playlist={playlist}
-                    isPlaying={isPlaying}
                     data={playlistdata}
                     i={i}
                     />

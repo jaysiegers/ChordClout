@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-const PlaylistCard = ({playlist, i, data}) => {
+const PlaylistCard = ({playlist}) => {
   console.log(playlist)
 
   
