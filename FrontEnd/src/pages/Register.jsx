@@ -12,6 +12,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [showError, setShowError] = useState(false);
   const [verifyEmail, setVerifyEmail] = useState(false);
   const [name, setName] = useState("");
   const [user, loading, error] = useAuthState(auth);
@@ -21,7 +22,7 @@ const Register = () => {
     if (!name) alert("Please enter name");
 
     if (!verifyEmail) {
-      alert(emailError)
+      setShowError(true);
     } else {
       registerWithEmailAndPassword(name, email, password);
     }
@@ -34,7 +35,7 @@ const Register = () => {
 
   const checkEmail = (e) => {
     setEmail(e.target.value);
-    const email_regex = /^[^\s@]+@gmail+\.[^\s@]+$/;
+    const email_regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     if (!email_regex.test(e.target.value)) {
       setEmailError("Email address is not valid");
       setVerifyEmail(false);
@@ -62,6 +63,7 @@ const Register = () => {
           onChange={(e) => checkEmail(e)}
           placeholder="E-mail Address"
         />
+        {showError && <p className="error">{emailError}</p>}
         <input
           type="password"
           className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"

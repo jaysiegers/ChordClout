@@ -120,3 +120,9 @@
     margin-left: 10px;
     transition: var(--speed);
   }
+  
+  .error{
+    color: red;
+    margin-top: -8px;
+    margin-bottom: 2px;
+  }
