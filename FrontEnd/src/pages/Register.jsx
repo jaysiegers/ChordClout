@@ -11,17 +11,39 @@ import {
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [verifyEmail, setVerifyEmail] = useState(false);
   const [name, setName] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
+
   const register = () => {
     if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password);
+
+    if (!verifyEmail) {
+      alert(emailError)
+    } else {
+      registerWithEmailAndPassword(name, email, password);
+    }
   };
+
   useEffect(() => {
     if (loading) return;
     if (user) navigate("/login", { replace: true });
   }, [user, loading]);
+
+  const checkEmail = (e) => {
+    setEmail(e.target.value);
+    const email_regex = /^[^\s@]+@gmail+\.[^\s@]+$/;
+    if (!email_regex.test(e.target.value)) {
+      setEmailError("Email address is not valid");
+      setVerifyEmail(false);
+    } else {
+      setEmailError("");
+      setVerifyEmail(true);
+    }
+  }
+
   return (
     <div className="h-screen w-screen flex items-center justify-center mx-[125px]">
       <img src={poster} alt="poster" className="absolute inset-y-0 left-0 w-auto h-full"/>
@@ -37,7 +59,7 @@ const Register = () => {
           type="text"
           className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => checkEmail(e)}
           placeholder="E-mail Address"
         />
         <input

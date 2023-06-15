@@ -5,7 +5,7 @@ export const spotify23API = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://spotify23.p.rapidapi.com',
     prepareHeaders: (headers) => {
-      headers.set('X-RapidAPI-Key', 'e22b2b4c0cmshc6552f5204b74eap14a87ejsn2539cd1acd4a');
+      headers.set('X-RapidAPI-Key', '08d8af86a9msh7331f7fc1ddd110p18a2e5jsn851307881c3b');
 
       return headers;
     },
@@ -29,4 +29,4 @@ export const {
   useGetPlaylistTracksByIDQuery,
   useGetPlaylistByIDQuery,
   useGetArtistByIDQuery,
-} = spotify23API;
+} = spotify23API
