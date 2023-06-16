@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
+import { profile } from '../assets';
 
 const ArtistDetailsHeader = ( artistData ) => {
 // console.log(artistData);
 // console.log(artistData.artists[0].images[0].url)
 // console.log(songData.tracks[0]);
 console.log(artistData.artistData.data);
-console.log(artistData.artistData.data.artist.profile.name);
-console.log(artistData.artistData.data.artist.profile.biography.text);
-console.log(artistData.artistData.data.artist.visuals.avatarImage.sources[0].url);
+//console.log(artistData.artistData.data.artist.profile.name);
+//console.log(artistData.artistData.data.artist.profile.biography.text);
+//console.log(artistData.artistData.data.artist.visuals.avatarImage.sources[0].url);
 // console.log(ArtistData[0]?.ArtistData);
 //console.log(artistId);
 return (
@@ -17,7 +18,9 @@ return (
     <div className="absolute inset-0 flex items-center">
       <img
       alt="alt"
-      src={artistData.artistData.data.artist.visuals.avatarImage.sources[0].url.replace('{w}','500').replace('{h}','500') }
+      src={artistData.artistData.data.artist.visuals.avatarImage === null ? profile
+        : artistData.artistData.data.artist.visuals.avatarImage.sources[0].url.replace('{w}','500').replace('{h}','500') 
+      }
       className="sm:w-48 w-28 sm:h-48 h-28 rounded-full
       object-cover border-2 shadow-xl shadow-black"
       />

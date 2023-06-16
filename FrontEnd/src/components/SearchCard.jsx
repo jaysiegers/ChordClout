@@ -27,8 +27,8 @@ const SearchCard = ({song, isPlaying, activeSong, i}) => {
 
   if (error) return <Error />;
 
-  console.log(songData.tracks)
-  console.log(songData.tracks[0].album)
+  // console.log(songData.tracks)
+  // console.log(songData.tracks[0].album)
   // console.log(song)
 
   return (
