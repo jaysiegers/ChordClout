@@ -6,12 +6,10 @@ import { poster } from "../assets";
 
 const Login = () => {
   const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
   const [verifyEmail, setVerifyEmail] = useState(false);
-  const [showEError, setShowEError] = useState(false);
   const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("")
-  const [showPError, setShowPError] = useState(false);
+  const [loginError, setLoginError] = useState("")
+  const [showError, setShowError] = useState(false);
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -26,27 +24,28 @@ const Login = () => {
     setEmail(e.target.value);
     const email_regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     if (!email_regex.test(e.target.value)) {
-      setEmailError("Email address is not valid");
+      console.log(e.target.value)
+      setLoginError("Incorrect email or password");
       setVerifyEmail(false);
     } else {
-      setEmailError("");
+      setLoginError("");
       setVerifyEmail(true);
     }
   }
 
   const loginCheck = (email, password) => {
     if (email === "") {
-      setShowEError(true);
+      setShowError(true);
     } else if (!verifyEmail) {
-      setShowEError(true);
+      setShowError(true);
     } else {
       logInWithEmailAndPassword(email, password).then((err) => {
         if (err === "Firebase: Error (auth/missing-password)." || err === "Firebase: Error (auth/wrong-password).") {
-          setPasswordError("Password do not match");
-          setShowPError(true);
+          setLoginError("Incorrect email or password");
+          setShowError(true);
         } else if (err === "Firebase: Error (auth/user-not-found).") {
-          setEmailError("User does not exist.");
-          setShowEError(true);
+          setLoginError("Incorrect email or password");
+          setShowError(true);
         } else {
           logInWithEmailAndPassword(email, password)
         }
@@ -65,7 +64,6 @@ const Login = () => {
           onChange={(e) => checkEmail(e)}
           placeholder="E-mail Address"
         />
-        {showEError && <p className="error">{emailError}</p>}
         <input
           type="password"
           className="bg-slate-300 border border-slate-700 p-2 text-lg mb-2 rounded-lg"
@@ -73,7 +71,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        {showPError && <p className="error">{passwordError}</p>}
+        {showError && <p className="error">{loginError}</p>}
         <button
           className="p-2 text-lg mb-2 text-white bg-black rounded-lg"
           onClick={() => loginCheck(email, password)}
