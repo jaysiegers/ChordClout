@@ -1,22 +1,11 @@
 {
   "hosting": {
-<<<<<<< Updated upstream
-    "public": "build",
-=======
+    "site":"chord-clout-aa0dc",
     "public": "public",
->>>>>>> Stashed changes
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-<<<<<<< Updated upstream
-=======
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   },
   "firestore": {
@@ -27,7 +16,6 @@
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run lint",
       "npm --prefix \"$RESOURCE_DIR\" run build"
->>>>>>> Stashed changes
     ]
   }
 }
